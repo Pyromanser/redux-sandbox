@@ -1,4 +1,4 @@
-export const ink = () => ({type: "INC"});
+export const inc = () => ({type: "INC"});
 
 export const dec = () => ({type: "DEC"});
 
