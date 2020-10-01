@@ -1,3 +1,5 @@
+import {createStore} from "redux";
+
 const reducer = (state = 0, action) => {
   switch (action.type) {
     case "INK":
@@ -7,9 +9,11 @@ const reducer = (state = 0, action) => {
   }
 };
 
-let state = reducer(undefined, {});
+const store = createStore(reducer);
 
-state = reducer(state, {type: "INK"});
-console.log(state);
-state = reducer(state, {type: "INK"});
-console.log(state);
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
+store.dispatch({type:"INK"});
+store.dispatch({type:"INK"});
